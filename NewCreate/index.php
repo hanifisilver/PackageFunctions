@@ -1,5 +1,6 @@
 <?php
 include 'TimeOutChecked.php';
+require_once "GlobalFunctions.php";
 
 ?>
 <!DOCTYPE html>
@@ -11,30 +12,14 @@ include 'TimeOutChecked.php';
 </head>
 
 <body>
-	<?php if (isset($_SESSION['alert'])): ?>
-		<div id="customAlert" class="alert-box <?= $_SESSION['alert']['type']; ?>">
-			<span class="alert-close">&times;</span>
-			<?php
-			if (is_array($_SESSION['alert']['message'])) {
-				echo "<ul>";
-				foreach ($_SESSION['alert']['message'] as $msg) {
-					echo "<li>{$msg}</li>";
-				}
-				echo "</ul>";
-			} else {
-				echo $_SESSION['alert']['message'];
-			}
-			?>
-		</div>
-		<?php unset($_SESSION['alert']); ?>
-	<?php endif; ?>
+	<?php showAlert(); ?>
 	<div class="wrapper">
 		<?php include 'Sidebar.php'; ?>
 
 		<div class="main">
 			<?php include 'Navbar.php'; ?>
 
-			
+
 
 			<?php include 'Footer.php'; ?>
 		</div>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "GlobalFunctions.php";
 ?>
 <html lang="tr">
 <head>
@@ -8,23 +9,7 @@ session_start();
 </head>
 
 <body>
-    <?php if (isset($_SESSION['alert'])): ?>
-        <div id="customAlert" class="alert-box <?= $_SESSION['alert']['type']; ?>">
-            <span class="alert-close">&times;</span>
-            <?php
-            if (is_array($_SESSION['alert']['message'])) {
-                echo "<ul>";
-                foreach ($_SESSION['alert']['message'] as $msg) {
-                    echo "<li>{$msg}</li>";
-                }
-                echo "</ul>";
-            } else {
-                echo $_SESSION['alert']['message'];
-            }
-            ?>
-        </div>
-        <?php unset($_SESSION['alert']); ?>
-    <?php endif; ?>
+	<?php showAlert(); ?>
     <main class="d-flex w-100 h-100">
         <div class="container d-flex flex-column">
             <div class="row vh-100">
@@ -45,17 +30,17 @@ session_start();
                                         <div class="mb-3">
                                             <label class="form-label">İsim</label>
                                             <input class="form-control form-control-lg" type="text" name="Name"
-                                                placeholder="İsminizi Giriniz">
+                                                placeholder="İsminizi Giriniz" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Soyisim</label>
                                             <input class="form-control form-control-lg" type="text" name="Surname"
-                                                placeholder="Soyisiminizi Giriniz">
+                                                placeholder="Soyisiminizi Giriniz" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
                                             <input class="form-control form-control-lg" type="email" name="Email"
-                                                placeholder="E-Mail Adresinizi Giriniz">
+                                                placeholder="E-Mail Adresinizi Giriniz" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Şifre</label>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "GlobalFunctions.php";
 ?>
 <html lang="tr">
 
@@ -9,23 +10,7 @@ session_start();
 </head>
 
 <body>
-	<?php if (isset($_SESSION['alert'])): ?>
-		<div id="customAlert" class="alert-box <?= $_SESSION['alert']['type']; ?>">
-			<span class="alert-close">&times;</span>
-			<?php
-			if (is_array($_SESSION['alert']['message'])) {
-				echo "<ul>";
-				foreach ($_SESSION['alert']['message'] as $msg) {
-					echo "<li>{$msg}</li>";
-				}
-				echo "</ul>";
-			} else {
-				echo $_SESSION['alert']['message'];
-			}
-			?>
-		</div>
-		<?php unset($_SESSION['alert']); ?>
-	<?php endif; ?>
+	<?php showAlert(); ?>
 	<main class="d-flex w-100 h-100">
 		<div class="container d-flex flex-column">
 			<div class="row vh-100">

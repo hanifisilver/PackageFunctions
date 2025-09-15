@@ -1,14 +1,5 @@
 <?php
-// Kullanıcının mevcut bilgilerini veritabanından çek
-include 'Connection.php';
-$userID = $_SESSION['UserID'] ?? null;
-$user = [];
-
-if ($userID) {
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE UserID = :uid LIMIT 1");
-    $stmt->execute([':uid' => $userID]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-}
+require 'UserQuery.php';
 ?>
 <nav class="navbar navbar-expand navbar-light navbar-bg">
     <a class="sidebar-toggle js-sidebar-toggle">

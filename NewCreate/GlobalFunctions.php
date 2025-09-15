@@ -1,9 +1,12 @@
 <?php
+//***************************************************************//
+//****** Girilen TR Karakterleri EN Formatına Uygun Yapar *******//
+//***************************************************************//
 function ENFormatText($name, $pdo)
 {
     // Türkçe karakterleri ASCII karşılıklarına çevir
-    $turkish = ['Ç','ç','Ğ','ğ','İ','ı','Ö','ö','Ş','ş','Ü','ü'];
-    $english = ['C','c','G','g','I','i','O','o','S','s','U','u'];
+    $turkish = ['Ç', 'ç', 'Ğ', 'ğ', 'İ', 'ı', 'Ö', 'ö', 'Ş', 'ş', 'Ü', 'ü'];
+    $english = ['C', 'c', 'G', 'g', 'I', 'i', 'O', 'o', 'S', 's', 'U', 'u'];
     $name = str_replace($turkish, $english, $name);
 
     // Noktaları ve özel karakterleri alt tireye çevir
@@ -35,3 +38,35 @@ function ENFormatText($name, $pdo)
 
     return $name;
 }
+
+
+//*********************************************//
+//****** Alert Mekanizmasını Çalıştırır *******//
+//*********************************************//
+function showAlert()
+{
+    if (!isset($_SESSION['alert']))
+        return;
+
+    $alert = $_SESSION['alert'];
+    ?>
+    <div id="customAlert" class="alert-box <?= htmlspecialchars($alert['type']); ?>">
+        <span class="alert-close">&times;</span>
+        <?php
+        if (is_array($alert['message'])) {
+            echo "<ul>";
+            foreach ($alert['message'] as $msg) {
+                echo "<li>" . htmlspecialchars($msg) . "</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo htmlspecialchars($alert['message']);
+        }
+        ?>
+    </div>
+    <?php
+    // Alert gösterildikten sonra session temizle
+    unset($_SESSION['alert']);
+}
+
+?>
