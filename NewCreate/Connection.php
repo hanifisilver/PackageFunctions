@@ -1,5 +1,7 @@
 <?php
-// db.php
+//************************************//
+//****** Veritabanı Bağlantısı *******//
+//************************************//
 
 $host = "localhost";          // Localhost veya Sunucu Bağlantı Portu
 $dbname = "packagefunctions"; // phpMyAdmin'de oluşturduğun veritabanı adı
@@ -15,3 +17,4 @@ try {
 } catch (PDOException $e) {
     die("Veritabanına bağlanılamadı: " . $e->getMessage());
 }
+//************************************//

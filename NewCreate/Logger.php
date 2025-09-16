@@ -1,4 +1,7 @@
 <?php
+//****************************************************************************************//
+//****** Sistemin herhangi Bir yerinde Hata olması Durumunda Veritabanına LOG Atar *******//
+//****************************************************************************************//
 function logError(PDO $pdo, Exception $ex, string $action, string $tableName, ?int $userId = null): void
 {
     try {
@@ -18,7 +21,7 @@ function logError(PDO $pdo, Exception $ex, string $action, string $tableName, ?i
             ':CreateDate' => (new DateTime('now', new DateTimeZone('Europe/Istanbul')))->format('Y-m-d H:i:s'),
         ]);
     } catch (Exception $logEx) {
-        // Eğer log atarken de hata olursa sessiz geç (sonsuz döngü önlenir)
+        //****** Eğer LOG Atarken Hata Olursa Sessiz Geç (sonsuz döngü önlenir) *******//
         error_log("Logger failed: " . $logEx->getMessage());
     }
 }

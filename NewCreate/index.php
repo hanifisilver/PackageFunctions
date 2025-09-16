@@ -1,6 +1,6 @@
 <?php
-include 'TimeOutChecked.php';
-require_once "GlobalFunctions.php";
+include 'TimeOutChecked.php';  
+require "GlobalFunctions.php";
 
 ?>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ require_once "GlobalFunctions.php";
 
 <head>
 	<?php include 'SiteMasterHeadCSS.php'; ?>
-	<title>Anasayfa | CRM - Teknik Tanker</title>
+	<title>Anasayfa | Paket Fonksiyonlar</title>
 </head>
 
 <body>

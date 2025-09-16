@@ -1,13 +1,18 @@
 <?php
+
+//**********************************************************//
+//****** Kullanıcının Oturum(Login) Açmasını SAağlar *******//
+//**********************************************************//
 session_start();
 require "Connection.php";
-require_once 'Logger.php';
+require 'Logger.php';
 
 try {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $email = trim($_POST["email"]);
-        $password = trim($_POST["password"]);
+        $email = trim($_POST["email"]);       // Kullanıcıdan Alınan E-Mail Input Değeri
+        $password = trim($_POST["password"]); // Kullanıcıdan Alınan Şifre Input Değeri
 
+        //****** İnput Değerlerinin Boş Olup Olmadığını Kontrol Eder *******//
         if (empty($email) || empty($password)) {
             $_SESSION['alert'] = [
                 'type' => 'error',
@@ -17,17 +22,18 @@ try {
             exit;
         }
 
-        // Kullanıcıyı email ile bul
+        //****** Kullanıcıyı E-mail Adresinden Bul *******//
         $stmt = $pdo->prepare("SELECT * FROM users WHERE Mail = :email LIMIT 1");
         $stmt->execute([":email" => $email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        //****** Oturum Açma Başarılı İse Sessions Oluşturur *******//
         if ($user && password_verify($password, $user["Password"])) {
-            // SignIn başarılı → session oluştur
-            $_SESSION["UserID"] = $user["UserID"];
-            $_SESSION["UserName"] = $user["UserName"];
-            $_SESSION["LastActivity"] = time(); // oturum başlangıç zamanı
-            $_SESSION["SessionTimeout"] = 1800; // 30 dakika (saniye cinsinden)
+            $_SESSION["UserID"] = $user["UserID"];     // UserId
+            $_SESSION["UserName"] = $user["UserName"]; // UserName
+            $_SESSION["Type"] = $user["Type"];         // Type = Kulanıcının SüperUser Olup Olmadığını Anlamk İçin
+            $_SESSION["LastActivity"] = time();        // Oturum Başlangıç Zamanı
+            $_SESSION["SessionTimeout"] = 1800;        // Oturumun Açık Kalma Süresi(saniye)
 
             $_SESSION['alert'] = [
                 'type' => 'success',

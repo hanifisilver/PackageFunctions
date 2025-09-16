@@ -1,18 +1,23 @@
 <?php
+//************************************************//
+//****** Yeni Kullanıcılar İçin Kayıt Açar *******//
+//************************************************//
 session_start();
-require "Connection.php";      // PDO bağlantısı
+require "Connection.php";      
 require "GlobalFunctions.php";  
-require 'Logger.php';          // Loglama fonksiyonu
+require 'Logger.php';          
 
 try {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        //****** Formandan Gelen İnput Değerleri *******//
         $Name = trim($_POST["Name"]);
         $Surname = trim($_POST["Surname"]);
         $Mail = trim($_POST["Email"]);
         $Password = trim($_POST["Password"]);
         $PasswordAgain = trim($_POST["PasswordAgain"]);
         $UserName = ENFormatText($Name . $Surname, $pdo);
-
+        
+        //****** Default(varsayılan) Değerler *******//
         $Type = 1;
         $Status = 1;
         $Gender = null;
@@ -24,7 +29,7 @@ try {
         $HashValue = bin2hex(random_bytes(16));
         $IsActive = true;
 
-        // Basit validasyon
+        //****** İnput Değerlerinin Boş Olup Olmadığını Kontrol Eder *******//
         if (empty($Mail) || empty($Password) || empty($PasswordAgain)) {
             $_SESSION['alert'] = [
                 'type' => 'error',
@@ -33,6 +38,7 @@ try {
 
         }
 
+        //****** Şifreler Birbiri İle Uyuşuyormu Kontrol Eder *******//
         if ($Password !== $PasswordAgain) {
             $_SESSION['alert'] = [
                 'type' => 'error',
@@ -41,7 +47,7 @@ try {
             exit;
         }
 
-        // Şifreyi güvenli saklamak için hashle
+        //****** Şifreyi Hashler *******//
         $hashedPassword = password_hash($Password, PASSWORD_DEFAULT);
 
         $stmt = $pdo->prepare(" INSERT INTO users (Type, Statüs, UserName, Name, Surname, Gender, Mail, Tel, Password, Forgotpassword, PasswordUpdateDate, CreateDate, UpdateDate, HashValue, IsActive) 
@@ -65,7 +71,6 @@ try {
             $IsActive
         ]);
 
-        // Başarılıysa SignIn sayfasına yönlendir
         $_SESSION['alert'] = [
             'type' => 'success',
             'message' => 'Kayıt olma işlemleri başarıyla tamamladı.'

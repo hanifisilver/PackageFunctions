@@ -1,10 +1,13 @@
 <?php
+//*****************************************************//
+//****** Kullanıcının Oturumunu(Logout) Kapatır *******//
+//*****************************************************//
 session_start();
 
-// Tüm session değişkenlerini temizle
+//****** Açık Olan Tüm Session'ları Temizler *******//
 $_SESSION = [];
 
-// Eğer cookie kullanılıyorsa onu da geçersiz kıl
+//****** Eğer Cookie Kulanıyorsa geçersiz Kıl *******//
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(
@@ -18,9 +21,9 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Session tamamen kapat
+//****** Session Tamemen Kapat *******//
 session_destroy();
 
-// Kullanıcıyı SignIn sayfasına yönlendir
+//****** Kullanıcıyı GGiriş Sayfasına Yönlendir *******//
 header("Location: SignIn.php");
 exit;

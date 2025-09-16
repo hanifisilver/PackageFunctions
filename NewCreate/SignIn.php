@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once "GlobalFunctions.php";
+require "GlobalFunctions.php";
 ?>
 <html lang="tr">
 
 <head>
 	<?php include 'SiteMasterHeadCSS.php'; ?>
-	<title>Giriş Yap | CRMTT</title>
+	<title>Giriş Yap | Paket Fonksiyonlar</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@ require_once "GlobalFunctions.php";
 					<div class="d-table-cell align-middle">
 
 						<div class="text-center mt-4">
-							<h1 class="h1">CRMTT TEKNİK TANKER</h1>
+							<h1 class="h1">PAKET FONKSŞYONLAR</h1>
 							<p class="lead">Devam Etmek İçin Giriş Yapın</p>
 						</div>
 
@@ -28,12 +28,12 @@ require_once "GlobalFunctions.php";
 									<!-- FORM BAŞLANGICI -->
 									<form method="post" action="SignInChecked.php">
 										<div class="mb-3">
-											<label class="form-label">Email</label>
+											<label class="form-label">Email(deneme@gmail.com)</label>
 											<input class="form-control form-control-lg" type="email" name="email"
 												placeholder="Email adresinizi giriniz" required>
 										</div>
 										<div class="mb-3">
-											<label class="form-label">Şifre</label>
+											<label class="form-label">Şifre(123)</label>
 											<input class="form-control form-control-lg" type="password" name="password"
 												placeholder="Şifrenizi giriniz" required>
 											<small>

@@ -1,11 +1,11 @@
 <?php
 session_start();
-require_once "GlobalFunctions.php";
+require "GlobalFunctions.php";
 ?>
 <html lang="tr">
 <head>
     <?php include 'SiteMasterHeadCSS.php'; ?>
-    <title>Kayıt Ol | CRMTT</title>
+    <title>Kayıt Ol | Paket Fonksiyonlar</title>
 </head>
 
 <body>
@@ -60,7 +60,7 @@ require_once "GlobalFunctions.php";
                             </div>
                         </div>
                         <div class="text-center mb-3">
-                            Already have account? <a href="./SignIn.php">Giriş Yap</a>
+                            Zaten Hesabın Var Mı? <a href="./SignIn.php">Giriş Yap</a>
                         </div>
                     </div>
                 </div>

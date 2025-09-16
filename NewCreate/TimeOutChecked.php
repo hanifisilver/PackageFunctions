@@ -1,13 +1,16 @@
 <?php
+//***********************************************************************************//
+//****** Oturumu Açık Olan Kullanıcının Session Süresine Göre Oturumu Kapatır *******//
+//***********************************************************************************//
 session_start();
 
-// Kullanıcı giriş yapmamışsa
+//****** Kullanıcı Giriş Yapmışsa *******//
 if (!isset($_SESSION["UserID"])) {
     header("Location: SignIn.php");
     exit;
 }
 
-// Session timeout kontrol
+//****** Session Timeout Kontrolü *******//
 if (isset($_SESSION["LastActivity"]) && (time() - $_SESSION["LastActivity"]) > $_SESSION["SessionTimeout"]) {
     session_unset();
     session_destroy();
@@ -15,6 +18,6 @@ if (isset($_SESSION["LastActivity"]) && (time() - $_SESSION["LastActivity"]) > $
     exit;
 }
 
-// Aktivite zamanını güncelle
+//****** Aktivite Zamanını Günceller *******//
 $_SESSION["LastActivity"] = time();
 ?>

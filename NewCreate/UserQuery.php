@@ -1,5 +1,7 @@
 <?php
-// Oturum Açmış Kullnıcının Bilgilerini Getirir
+//***********************************************************//
+//****** Oturum Açan Kullanıcının Bilgilerini Getirir *******//
+//***********************************************************//
 
 include 'Connection.php';
 
