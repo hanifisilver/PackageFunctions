@@ -35,6 +35,8 @@ try {
             $_SESSION["LastActivity"] = time();        // Oturum Başlangıç Zamanı
             $_SESSION["SessionTimeout"] = 1800;        // Oturumun Açık Kalma Süresi(saniye)
 
+            $_SESSION['just_logged_in'] = true;        // Kullanıcı Oturum Açtıktan Sonra 1 Defalık Refresh İşlemi Yapar
+
             $_SESSION['alert'] = [
                 'type' => 'success',
                 'message' => 'Giriş başarılı! Hoş geldiniz ' . htmlspecialchars($user["Name"])

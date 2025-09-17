@@ -2,7 +2,7 @@
 session_start();
 require "GlobalFunctions.php";
 ?>
-<html lang="tr">
+<html>
 
 <head>
 	<?php include 'SiteMasterHeadCSS.php'; ?>
