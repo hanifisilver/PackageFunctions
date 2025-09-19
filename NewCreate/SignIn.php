@@ -1,7 +1,21 @@
 <?php
-session_start();
-require "GlobalFunctions.php";
+require_once 'init.php';   // en başta olmalı, session + dil ayarı burada yapılıyor
+require_once 'UserQuery.php';
+require_once 'GlobalFunctions.php';
+
+// Kullanıcı bilgisi (login olmamışsa boş gelecek)
+$user = [
+	"UserName" => $_SESSION["UserName"] ?? '',
+	"Type" => $_SESSION["Type"] ?? 0
+];
+// Dil değişimini kontrol et (HTML çıktısından önce)
+if (isset($_GET['lang'])) {
+	$lang->setLanguage($_GET['lang']);
+	header("Location: " . $_SERVER['PHP_SELF']);
+	exit;
+}
 ?>
+
 <html>
 
 <head>
@@ -11,14 +25,23 @@ require "GlobalFunctions.php";
 
 <body>
 	<?php showAlert(); ?>
+
 	<main class="d-flex w-100 h-100">
+
 		<div class="container d-flex flex-column">
+			<div class="d-flex justify-content-end align-items-center mb-3 gap-3 mt-5">
+				<!-- Dil Dropdown -->
+				<?php include 'LanguageDropdown.php'; ?>
+
+				<!-- Dark/Light Toggle -->
+				<?php include 'DarkLightMode.php'; ?>
+			</div>
 			<div class="row vh-100">
 				<div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto d-table h-100">
 					<div class="d-table-cell align-middle">
 
 						<div class="text-center mt-4">
-							<h1 class="h1">PAKET FONKSŞYONLAR</h1>
+							<h1 class="h1"><?= $lang->get('PackageFunction') ?></h1>
 							<p class="lead">Devam Etmek İçin Giriş Yapın</p>
 						</div>
 
@@ -67,6 +90,7 @@ require "GlobalFunctions.php";
 			</div>
 		</div>
 	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 	<?php include 'SiteMasterBodyJS.php'; ?>
 </body>

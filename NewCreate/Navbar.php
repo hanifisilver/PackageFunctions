@@ -48,25 +48,14 @@ if (isset($_GET['lang'])) {
                 </div>
             </li>
 
-            <!-- Dil Seçimi Dropdown -->
-            <li class="nav-item dropdown ms-3">
-                <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown">
-                    <i class="align-middle me-1" data-feather="globe"></i> <?= strtoupper($_SESSION['lang'] ?? 'TR') ?>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="langDropdown">
-                    <li><a class="dropdown-item" href="?lang=tr">Türkçe</a></li>
-                    <li><a class="dropdown-item" href="?lang=en">English</a></li>
-                    <li><a class="dropdown-item" href="?lang=de">Deutsch</a></li>
-                    <li><a class="dropdown-item" href="?lang=ru">Русский</a></li>
-                    <li><a class="dropdown-item" href="?lang=ar">العربية</a></li>
-                </ul>
+            <!-- Dil Dropdown -->
+            <li class="nav-item me-3">
+                <?php include 'LanguageDropdown.php'; ?>
             </li>
 
-            <!-- Dark / Light Mode Toggle -->
-            <li class="nav-item ms-3">
-                <a class="nav-link" href="#" id="themeToggleBtn">
-                    <i id="themeIcon" data-feather="moon"></i> <span id="themeText">Dark</span>
-                </a>
+            <!-- Dark/Light Toggle -->
+            <li class="nav-item">
+                <?php include 'DarkLightMode.php'; ?>
             </li>
 
         </ul>

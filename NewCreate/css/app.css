@@ -151,136 +151,6 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/*****************************************************************************************************************/
-/**************************************     DARK LİGHT MODE      *************************************************/
-/*****************************************************************************************************************/
-
-
-/* BODY */
-body.dark-mode, 
-.navbar.dark-mode, 
-.sidebar.dark-mode, 
-.main.dark-mode, 
-.wrapper.dark-mode, 
-.footer.dark-mode, 
-.card.dark-mode, 
-.table.dark-mode,
-a.dark-mode,
-.nav-link.dark-mode,
-.dropdown-item.dark-mode {
-    color: #f5f5f5 !important; /* Açık renk */
-}
-
-body.light-mode, 
-.navbar.light-mode, 
-.sidebar.light-mode, 
-.main.light-mode, 
-.wrapper.light-mode, 
-.footer.light-mode, 
-.card.light-mode, 
-.table.light-mode,
-a.light-mode,
-.nav-link.light-mode,
-.dropdown-item.light-mode {
-    color: #121212 !important; /* Koyu renk */
-}
-
-/* Navbar */
-.navbar.light-mode {
-    background-color: #f8f9fa;
-    color: #121212;
-}
-
-.navbar.dark-mode {
-    background-color: #1f1f1f;
-    color: #f5f5f5;
-}
-
-/* Sidebar */
-.sidebar.light-mode {
-    background-color: #f5f5f5;
-    color: #121212;
-}
-
-.sidebar.dark-mode {
-    background-color: #1a1a1a;
-    color: #f5f5f5;
-}
-
-.sidebar.dark-mode .sidebar-link.active {
-    background-color: #333;
-}
-
-/* Wrapper / Main */
-.wrapper.light-mode,
-.main.light-mode {
-    background-color: #ffffff;
-    color: #121212;
-}
-
-.wrapper.dark-mode,
-.main.dark-mode {
-    background-color: #121212;
-    color: #f5f5f5;
-}
-
-/* Footer */
-.footer.light-mode {
-    background-color: #f8f9fa;
-    color: #121212;
-}
-
-.footer.dark-mode {
-    background-color: #1f1f1f;
-    color: #f5f5f5;
-}
-
-/* Kartlar ve tablolar */
-.card.light-mode,
-.table.light-mode,
-.table th.light-mode,
-.table td.light-mode {
-    background-color: #ffffff;
-    color: #121212;
-    border-color: #dee2e6;
-}
-
-.card.dark-mode,
-.table.dark-mode,
-.table th.dark-mode,
-.table td.dark-mode {
-    background-color: #1f1f1f;
-    color: #f5f5f5;
-    border-color: #333;
-}
-
-/* Dropdown ve menüler */
-.dropdown-menu.light-mode {
-    background-color: #ffffff;
-    color: #121212;
-}
-
-.dropdown-menu.dark-mode {
-    background-color: #1f1f1f;
-    color: #f5f5f5;
-}
-
-a.light-mode,
-.nav-link.light-mode,
-.dropdown-item.light-mode {
-    color: #121212;
-}
-
-a.dark-mode,
-.nav-link.dark-mode,
-.dropdown-item.dark-mode {
-    color: #f5f5f5;
-}
-
-/*****************************************************************************************************************/
-/**************************************     DARK LİGHT MODE      *************************************************/
-/*****************************************************************************************************************/
-
 hr {
     border: 0;
     border-top: var(--bs-border-width) solid;
@@ -16227,5 +16097,172 @@ span.flatpickr-weekday {
     top: 0;
     width: 260px
 }
+
+/*****************************************************************************************************************/
+/**************************************     DARK LİGHT MODE      *************************************************/
+/*****************************************************************************************************************/
+
+/* Toggle Container */
+.tdnn {
+    position: relative;
+    height: 2em;        /* küçültüldü */
+    width: 3.5em;       /* küçültüldü */
+    border-radius: 2em;
+    background: #423966; /* gece rengi */
+    cursor: pointer;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Moon / Sun */
+.tdnn .moon {
+    position: absolute;
+    top: 0.15em;
+    left: 0.15em;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    background: #D9FBFF;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Gündüz modu */
+.tdnn.day {
+    background: #FFBF71;
+}
+
+.tdnn.day .moon {
+    left: 1.65em; /* sağa kaydır */
+    background: #fff;
+}
+
+/* BODY */
+
+body.dark-mode,
+.navbar.dark-mode,
+.sidebar.dark-mode,
+.main.dark-mode,
+.wrapper.dark-mode,
+.footer.dark-mode,
+.card.dark-mode,
+.table.dark-mode,
+a.dark-mode,
+.nav-link.dark-mode,
+.dropdown-item.dark-mode {
+    color: #f5f5f5 !important;
+    /* Açık renk */
+}
+
+body.light-mode,
+.navbar.light-mode,
+.sidebar.light-mode,
+.main.light-mode,
+.wrapper.light-mode,
+.footer.light-mode,
+.card.light-mode,
+.table.light-mode,
+a.light-mode,
+.nav-link.light-mode,
+.dropdown-item.light-mode {
+    color: #121212 !important;
+    /* Koyu renk */
+}
+
+/* Navbar */
+.navbar.light-mode {
+    background-color: #f8f9fa;
+    color: #121212;
+}
+
+.navbar.dark-mode {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+}
+
+/* Sidebar */
+.sidebar.light-mode {
+    background-color: #f5f5f5;
+    color: #121212;
+}
+
+.sidebar.dark-mode {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+}
+
+.sidebar.dark-mode .sidebar-link.active {
+    background-color: #333;
+}
+
+/* Wrapper / Main */
+.wrapper.light-mode,
+.body.lilight-mode,
+.main.light-mode {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.wrapper.dark-mode,
+.body.lilight-mode,
+.main.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Footer */
+.footer.light-mode {
+    background-color: #f8f9fa;
+    color: #121212;
+}
+
+.footer.dark-mode {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+}
+
+/* Kartlar ve tablolar */
+.card.light-mode,
+.table.light-mode,
+.table th.light-mode,
+.table td.light-mode {
+    background-color: #ffffff;
+    color: #121212;
+    border-color: #dee2e6;
+}
+
+.card.dark-mode,
+.table.dark-mode,
+.table th.dark-mode,
+.table td.dark-mode {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+    border-color: #333;
+}
+
+/* Dropdown ve menüler */
+.dropdown-menu.light-mode {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.dropdown-menu.dark-mode {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
+}
+
+a.light-mode,
+.nav-link.light-mode,
+.dropdown-item.light-mode {
+    color: #121212;
+}
+
+a.dark-mode,
+.nav-link.dark-mode,
+.dropdown-item.dark-mode {
+    color: #f5f5f5;
+}
+
+/*****************************************************************************************************************/
+/**************************************     DARK LİGHT MODE      *************************************************/
+/*****************************************************************************************************************/
 
 /*# sourceMappingURL=app.css.map*/
