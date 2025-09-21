@@ -12,11 +12,11 @@ Web sitelerinde en çok kullanılan sabit parçaları (componentleri) bir araya 
 - ⚡ **Alert**
 - 📝 **Logger**
 - 👑 **SuperUser**
+- 🌍 **Language (çoklu dil desteği)**
 
 ---
 
 ## 🛠️ Çok Yakında Eklenecekler
-- 🌍 **Language (çoklu dil desteği)**
 - 🌗 **Dark / Light Mode**
 - 📧 **Mail / WhatsApp yönlendirme**
 - 💬 **Yorum yapma / Onaylama mekanizması**
@@ -35,25 +35,25 @@ PackageFunctions/
 │ └── launch.json
 ├── NewCreate/
 │ ├── css/
-│   └── alert.css
-│   └── app.css
-│   └── app.css.map
-│   └── offer.css
+│ │ ├── alert.css
+│ │ ├── app.css
+│ │ ├── app.css.map
+│ │ └── offer.css
 │ ├── fonts/
-│   └── .gitkeep
+│ │ └── .gitkeep
 │ ├── img/
-│   └── Flag/
-│   └── icons/
+│ │ └── Flag/
+│ │ └── icons/
 │ ├── js/
-│   └── app.js
-│   └── app.js.LICENSE.txt
-│   └── app.js.map
+│ │ ├── app.js
+│ │ ├── app.js.LICENSE.txt
+│ │ └── app.js.map
 │ ├── Language/
-│   └── AR.json
-│   └── DE.json
-│   └── EN.json
-│   └── RU.json
-│   └── TR.json
+│ │ ├── AR.json
+│ │ ├── DE.json
+│ │ ├── EN.json
+│ │ ├── RU.json
+│ │ └── TR.json
 │ ├── Connection.php
 │ ├── DarkLightMode.php
 │ ├── Footer.php
@@ -75,12 +75,11 @@ PackageFunctions/
 │ ├── SiteMasterBodyJS.php
 │ ├── SiteMasterBodyCSS.php
 │ ├── TimeOutChecked.php
-│ ├── UserQuery.php
+│ └── UserQuery.php
 ├── cd
 ├── git
 ├── packagefunctions.sql
 └── README.md
-
 
 
 
